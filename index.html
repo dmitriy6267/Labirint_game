@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Лабиринт</title>
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Playball&display=swap&subset=cyrillic"
+     rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <link rel="shortcut icon" href="icon.png" type="image/png">
+</head>
+<body>
+  <header>
+    <em>ЛАБИРИНТ</em>
+  </header>
+  <main>
+    <div class="fire" id="fire">
+      <img src="./fire.gif" alt="МОЛОДЕЦ!">
+    </div>
+    <div class="calc" id="calc">
+      <div class="loose" id="loose">
+        <button type="button" class="loose-button" onclick="closeMessage()"><strong>OK</strong></button>
+      </div>
+      <div class="calc__text">Чтобы пройти лабиринт, тебе нужно решить 10 примеров без ошибок.</div>
+      <div class="but">
+        <div class="calc__equal">
+          <div class="calc__equal__num" id="num"> </div>
+          <div class="calc__equal__e">=</div>
+          <input type="text" placeholder="?" class="calc__equal__answer" id="input" autofocus>
+        </div>
+        <button type="button" class="button" onclick="comp()"><strong>ОТВЕТИТЬ</strong></button>
+      </div>
+      <div class="checkout">
+        <div id="check1" class="none">1
+        </div>
+        <div id="check2" class="none">2
+        </div>
+        <div id="check3" class="none">3
+        </div>
+        <div id="check4" class="none">4
+        </div>
+        <div id="check5" class="none">5
+        </div>
+        <div id="check6" class="none">6
+        </div>
+        <div id="check7" class="none">7
+        </div>
+        <div id="check8" class="none">8
+        </div>
+        <div id="check9" class="none">9
+        </div>
+        <div id="check10" class="none">10
+        </div>
+      </div>
+    </div>
+    <div id='maze'></div>
+    <button type="button" class="reload" id="reload" onclick="reload()">Играть заново</button>
+  </main>
+  <script src="index.js"></script>
+</body>
+</html>
