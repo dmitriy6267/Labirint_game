@@ -137,7 +137,7 @@ const comp = () => {
   example();
   input.focus();
 
-  if (total === 1) {
+  if (total === 10) {
     let calc = getElement("calc");
     calc.classList.remove('calc');
     calc.classList.add('calc_off');
