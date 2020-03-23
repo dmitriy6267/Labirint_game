@@ -7,8 +7,7 @@ let equal;
 
 const getElement = (id) => {
   return document.getElementById(id);
-}
-
+};
 
 const numbers = () => {
   num1 = Math.floor(Math.random()*101);
@@ -27,6 +26,7 @@ const sign = () => {
     sig = "+";
   } else {
     result = num1 - num2;
+
     sig  = "-";
   }
 }
@@ -84,7 +84,7 @@ const labirint = (hate, width, maze, walls, currentPosition) => {
   }
   document.getElementById('0-0').className = 'block me';
   document.getElementById((parseInt(hate)-1)+'-'+(parseInt(width)-1)).className = 'block finish';
-  document.body.onkeydown = function(e) {
+  document.body.onkeydown = (e) => {
     let newPosition = [currentPosition[0] + ((e.keyCode - 39) % 2), currentPosition[1] + ((e.keyCode - 38) % 2)];
     if (valid(newPosition[0],newPosition[1]) && maze[newPosition[0]][newPosition[1]] != 'wall') {
       document.getElementById(currentPosition[0]+'-'+currentPosition[1]).className = 'block';
@@ -97,7 +97,21 @@ const labirint = (hate, width, maze, walls, currentPosition) => {
       }
     }
   }
+  document.body.onclick = (e) => {
+    let newPosition = [currentPosition[0] + ((e.target.id - 39) % 2), currentPosition[1] + ((e.target.id - 38) % 2)];
+    if (valid(newPosition[0],newPosition[1]) && maze[newPosition[0]][newPosition[1]] != 'wall') {
+      document.getElementById(currentPosition[0]+'-'+currentPosition[1]).className = 'block';
+      currentPosition = newPosition;
+      document.getElementById(currentPosition[0]+'-'+currentPosition[1]).className = 'block me';
+      if (currentPosition[0] == hate-1 && currentPosition[1] == width-1) {
+        setTimeout(() => {
+          document.getElementById('fire').setAttribute('style','display:block');
+        }, 600);
+      }
+    }
+  }
 };
+
 
 const comp = () => {
   answ = input.value;
@@ -123,16 +137,21 @@ const comp = () => {
   example();
   input.focus();
 
-  if (total === 10) {
+  if (total === 1) {
     let calc = getElement("calc");
     calc.classList.remove('calc');
     calc.classList.add('calc_off');
     setTimeout(() => {
-      labirint(parseInt(40), parseInt(40), [], [], [0,0])
+      labirint(parseInt(45), parseInt(45), [], [], [0,0])
     }, 2050);
     setTimeout(() => {
       calc.style.display="none";
-      }, 2000)
+    }, 2000);
+    setTimeout(() => {
+      document.getElementById('reload').style.top = "890px";
+      document.getElementById('buttonBlock').style.display = "flex";
+    }, 2000)
+
   }
 };
 

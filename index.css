@@ -7,7 +7,7 @@
 }
 
 html, body {
-  height: 100%;
+  height: 99%;
 }
 
 body {
@@ -174,7 +174,7 @@ header {
   height: 300px;
   margin-left: 50px;
   padding-top: 10px;
-  background-color: orange;
+  background-color: #D3D3D3;
   border-radius: 10px;
   opacity:1;
   transition: 1s;
@@ -207,6 +207,7 @@ header {
 	font-size: 25px;
 	font-weight: 600;
 }
+
 @keyframes off {
   0%{
     opacity:1;
@@ -228,7 +229,7 @@ header {
 #maze {
   display: none;
 	border-style: solid;
-  margin-left: 10%;
+  margin: auto;
   border-radius: 5px;
   background-color: white;
 }
@@ -269,4 +270,29 @@ header {
   z-index: 1000;*/
   border: 2px solid grey;
   border-radius: 10px;
+}
+
+.buttonBlock {
+	margin: auto;
+	display: none;
+	flex-direction: column;
+	align-items: center;
+}
+
+.controlBtn {
+	width: 100px;
+	height: 100px;
+	margin: 30px;
+	border-radius: 10px;
+	font-size: 80px;
+	color: #009;
+	background-color: #D3D3D3;
+}
+
+.up {
+	margin-top: 80px;
+}
+
+.threeeButtons {
+	display: flex;
 }
